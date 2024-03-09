@@ -20,8 +20,10 @@ class InferlessPythonModel:
   def infer(self, inputs):
     prompt = inputs["prompt"]
     num_inference_steps = inputs["num_inference_steps"]
+    height = inputs["height"]
+    width = inputs["width"]
     self. generator.enable_xformers_memory_efficient_attention()
-    pipeline_output_image = self.generator(prompt, num_inference_steps=num_inference_steps).images[0]
+    pipeline_output_image = self.generator(prompt, num_inference_steps=num_inference_steps, height=height, width=width).images[0]
     buff = BytesIO()
     pipeline_output_image.save(buff, format="PNG")
     img_str = base64.b64encode(buff.getvalue())
