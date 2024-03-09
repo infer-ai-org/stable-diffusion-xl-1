@@ -10,5 +10,17 @@ INPUT_SCHEMA = {
         'required': True,
         'shape': [1],
         'example': [40]
+    },
+    "height": {
+        'datatype': 'INT8',
+        'required': True,
+        'shape': [1],
+        'example': [1024]
+    },
+    "width": {
+        'datatype': 'INT8',
+        'required': True,
+        'shape': [1],
+        'example': [1024]
     }
 }
