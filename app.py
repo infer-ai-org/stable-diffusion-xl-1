@@ -23,7 +23,7 @@ class InferlessPythonModel:
     height = inputs["height"]
     width = inputs["width"]
     self. generator.enable_xformers_memory_efficient_attention()
-    pipeline_output_image = self.generator(prompt, num_inference_steps=num_inference_steps, height=height, width=width).images[0]
+    pipeline_output_image = self.generator(prompt, num_inference_steps=num_inference_steps, height=height, width=width, original_size=(1024, 1024), target_size=(512, 512)).images[0]
     buff = BytesIO()
     pipeline_output_image.save(buff, format="PNG")
     img_str = base64.b64encode(buff.getvalue())
